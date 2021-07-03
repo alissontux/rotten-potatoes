@@ -43,7 +43,7 @@ jobs:
 
   CD:
     runs-on: ubuntu-latest
-#    needs: [CI]
+    needs: [CI]
     steps:
        - uses: actions/checkout@v2
        - name: Kubernetes set context
@@ -62,5 +62,4 @@ jobs:
          with:
            manifests: |
              k8s/web/deployment.yaml
-           images: alissonprado/rotten-potatoes:latest
-           #images: alissonprado/rotten-potatoes:${{ github.run_number }}
+           images: alissonprado/rotten-potatoes:${{ github.run_number }}
